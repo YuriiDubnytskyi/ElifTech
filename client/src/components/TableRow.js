@@ -68,6 +68,7 @@ onSave(e) {
                 axios.put('/save/'+this.state.id, data2)
                 .then(res => console.log(res.data));
                 alert('Sucsses')
+                window.location.pathname='sucssesup'
         }
 /*
         $.ajax({
