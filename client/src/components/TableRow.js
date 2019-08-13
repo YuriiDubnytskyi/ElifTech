@@ -61,10 +61,14 @@ onSave(e) {
             preparation: this.state.preparation,
             author: this.state.author
         }
-        
-        console.log(this.state.id)
-        axios.put('/save/'+this.state.id, data2)
-        .then(res => console.log(res.data));
+        if(data2.name === '' || data2.author === '' || data2.preparation === '' || data2.ingredients === ''  ){
+            alert('The information is blank')
+        }else{
+                console.log(this.state.id)
+                axios.put('/save/'+this.state.id, data2)
+                .then(res => console.log(res.data));
+                alert('Sucsses')
+        }
 /*
         $.ajax({
                 url: "save",
@@ -120,7 +124,7 @@ onSave(e) {
                     type="text" className="form-control" value={this.state.author} onChange={this.onChangeAuthor}/>
                 
                 
-                    <button onClick={this.onSave} className="btn  btn-secondary m-2" type="submit" ><Link to={'/SucssesUp'}>Update & Save</Link></button>
+                    <button onClick={this.onSave} className="btn  btn-secondary m-2" type="submit" >Update & Save</button>
                 
               
            
